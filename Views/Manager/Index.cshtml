@@ -1,0 +1,93 @@
+﻿@using System.Globalization;
+@model IEnumerable<Coffee_Project.Models.UsersDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@if (CultureInfo.CurrentCulture.Name.StartsWith("en"))
+{
+    <h1 class="mt-3"> Users </h1>
+}
+else
+{
+    <h1 class="mt-3">utilisateurs</h1>
+
+}
+
+
+
+<div class="container">
+<div class="col-lg-12">
+    <div class="table-responsive">
+        <table class="table">
+    <thead>
+        <tr>
+            @if (CultureInfo.CurrentCulture.Name.StartsWith("en"))
+            {
+                <th>
+                   User Name
+                </th>
+            }
+            else
+            {
+                <th>
+                    Nom d'utilisateur
+                </th>
+                
+            }
+
+            @if (CultureInfo.CurrentCulture.Name.StartsWith("en"))
+            {
+                <th>
+                    Credit
+                </th>
+            }
+            else
+            {
+                <th>
+                    Crédit
+                </th>
+
+            }
+
+         
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+                  
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+                    
+            <td>
+                @Html.DisplayFor(modelItem => item.Credit)
+            </td>
+                @if (CultureInfo.CurrentCulture.Name.StartsWith("en"))
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { Id=item.Id }) 
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @Html.ActionLink("Éditer", "Edit", new { Id=item.Id })
+            </td>
+
+                }
+            
+        </tr>
+}
+    </tbody>
+</table>
+
+</div>
+</div>
+</div>

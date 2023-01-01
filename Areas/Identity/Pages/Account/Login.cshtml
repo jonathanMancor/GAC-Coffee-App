@@ -1,0 +1,114 @@
+﻿@page
+@using System.Globalization;
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<div class="row">
+    <div class="col-md-7 mt-4">
+        <section>
+            <form id="account" method="post">
+
+                @if (CultureInfo.CurrentCulture.Name.StartsWith("en"))
+                {
+                    <h5>Use your email to log in or to register</h5>
+                }
+                else
+                {
+                    <h4>Utilisez votre email pour vous connecter ou pour vous inscrire</h4>
+                }
+                <hr />
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-floating">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                    <label asp-for="Input.Email" class="form-label"></label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                @*  <div class="form-floating">
+                <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                <label asp-for="Input.Password" class="form-label"></label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>*@
+                <br />
+                <div>
+                    <div class="checkbox">
+                        @if (CultureInfo.CurrentCulture.Name.StartsWith("en"))
+                        {
+                            <label asp-for="Input.RememberMe" class="form-label">
+                                <input class="form-check-input" asp-for="Input.RememberMe" />
+                                Remember me
+                            </label>
+                        }
+                        else
+                        {
+                            <label asp-for="Input.RememberMe" class="form-label">
+                                <input class="form-check-input" asp-for="Input.RememberMe" />
+                                Se souvenir de moi
+                            </label>
+                        }
+
+                    </div>
+                </div>
+                <div>
+                    @* <a asp-area="Identity" asp-page="/Account/Register"> Don't have an account? Click here to register</a>*@
+                    <br />
+                    <br />
+                </div>
+                <div>
+                    @if (CultureInfo.CurrentCulture.Name.StartsWith("en"))
+                    {
+                        <button id="login-submit" asp-page-handler="Login" type="submit" class="w-100 btn btn-lg btn-primary">Sign in</button>
+                    }
+                    else
+                    {
+                        <button id="login-submit" asp-page-handler="Login" type="submit" class="w-100 btn btn-lg btn-primary">Ouvrir une session</button>
+                    }
+
+
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+
+<div class="row">
+    @*    <div class="col-md-6 mt-5">
+    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+    @if (CultureInfo.CurrentCulture.Name.StartsWith("en"))
+    {
+    <h2>Create a new account</h2>
+    }
+    else
+    {
+    <h2>Créer un nouveau compte</h2>
+    }
+    <hr />
+
+    <hr />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-floating">
+    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+    <label asp-for="Input.Email"></label>
+    <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+
+    @if (CultureInfo.CurrentCulture.Name.StartsWith("en"))
+    {
+    <button id="registerSubmit" asp-page-handler="Register" type="submit" class="w-100 btn btn-lg btn-primary mt-3">Sign Up</button>
+    }
+    else
+    {
+    <button id="registerSubmit" asp-page-handler="Register" type="submit" class="w-100 btn btn-lg btn-primary mt-3">S'enregistrer</button>
+    }
+
+    </form>
+    </div>*@
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

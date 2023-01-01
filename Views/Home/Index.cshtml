@@ -1,0 +1,16 @@
+﻿@using System.Globalization;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    @if (CultureInfo.CurrentCulture.Name.StartsWith("en"))
+    {
+        <h1 class="display-4">Welcome to GAC Coffee Club</h1>
+    }
+    else
+    {
+        <h1 class="display-4">Bievenue au club de café du AMC</h1>
+    }
+   
+</div>
